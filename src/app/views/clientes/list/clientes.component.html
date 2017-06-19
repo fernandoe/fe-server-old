@@ -1,0 +1,86 @@
+<div class="row wrapper border-bottom white-bg page-heading">
+  <div class="col-lg-10">
+    <h2>Static Tables</h2>
+    <ol class="breadcrumb">
+      <li>
+        <a href="index.html">Home</a>
+      </li>
+      <li>
+        <a>Tables</a>
+      </li>
+      <li class="active">
+        <strong>Static Tables</strong>
+      </li>
+    </ol>
+  </div>
+  <div class="col-lg-2">
+
+  </div>
+</div>
+<div class="wrapper wrapper-content animated fadeInRight">
+  <div class="row">
+    <div class="col-lg-12">
+      <div class="ibox float-e-margins">
+        <div class="ibox-title">
+          <h5>Clientes</h5>
+          <div ibox-tools></div>
+        </div>
+        <div class="ibox-content">
+          <div class="row">
+            <div class="col-sm-5 m-b-xs">
+              <div class="input-group">
+                <input type="text" placeholder="Pesquisar" class="input-sm form-control">
+                <span class="input-group-btn">
+                  <button type="button" class="btn btn-sm btn-primary">Filtrar</button>
+                </span>
+              </div>
+            </div>
+            <div class="col-sm-4 m-b-xs">
+            </div>
+            <div class="col-sm-3">
+              <button class="btn btn-sm btn-primary pull-right" (click)="novoCliente()">Novo Cliente</button>
+            </div>
+          </div>
+          <table class="table table-bordered">
+            <thead>
+            <tr>
+              <th class="col-sm-1 text-center">UID</th>
+              <th class="col-sm-5">Nome</th>
+              <th class="col-sm-5">E-mail</th>
+              <th class="col-sm-2 text-center">Ações</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr *ngFor="let cliente of clientes">
+              <td class="text-center">{{ cliente.uuid | slice:0:5 }}</td>
+              <td>{{ cliente.nome }}</td>
+              <td>{{ cliente.email }}</td>
+              <td class="text-center">
+                <button class="btn btn-success btn-circle btn-sm" type="button" (click)="onEdit(cliente.uuid)"><i class="fa fa-edit"></i></button>
+                <button class="btn btn-danger btn-circle" type="button"><i class="fa fa-trash-o"></i></button>
+              </td>
+            </tr>
+            </tbody>
+            <tfoot>
+            <tr>
+              <td colspan="4">
+                <ul class="pagination">
+                  <li class="footable-page-arrow"><a (click)="changePage(1)">«</a></li>
+                  <li class="footable-page-arrow"><a data-page="prev" href="#prev">‹</a></li>
+
+                  <li *ngFor="let p of previousPages" class="footable-page"><a (click)="changePage(p)">{{p}}</a></li>
+                  <li class="footable-page active"><a data-page="1" href="#">{{currentPage}}</a></li>
+                  <li *ngFor="let p of nextPages" class="footable-page"><a (click)="changePage(p)">{{p}}</a></li>
+
+                  <li class="footable-page-arrow disabled"><a data-page="next" href="#next">›</a></li>
+                  <li class="footable-page-arrow disabled"><a data-page="last" href="#last">»</a></li>
+                </ul>
+              </td>
+            </tr>
+            </tfoot>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
