@@ -5,7 +5,10 @@
 
 export const environment = {
   production: false,
-  api_auth_base_url: 'http://localhost:7000',
-  api_pessoa_base_url: 'http://localhost:7001',
-  api_endereco_base_url: 'http://localhost:7002',
+  // api_auth_base_url: 'http://localhost:7000',
+  // api_pessoa_base_url: 'http://localhost:7001',
+  // api_endereco_base_url: 'http://localhost:7002',
+  api_auth_base_url: 'https://auth.fe.fernandoe.com',
+  api_pessoa_base_url: 'https://pessoa.fe.fernandoe.com',
+  api_endereco_base_url: 'https://endereco.fe.fernandoe.com',
 };

@@ -1,6 +1,8 @@
-import {Component, OnInit, ViewChild} from '@angular/core';
+import {Component, OnInit, TemplateRef, ViewChild} from '@angular/core';
 import {ActivatedRoute, Router} from '@angular/router';
 import {NgForm} from '@angular/forms';
+import {BsModalService} from 'ngx-bootstrap/modal';
+import {BsModalRef} from 'ngx-bootstrap/modal/modal-options.class';
 
 import {ClienteService} from '../../../sdk/cliente.service';
 import {Cliente} from '../../../sdk/models/cliente';
@@ -12,12 +14,16 @@ import {Cliente} from '../../../sdk/models/cliente';
 })
 export class ClientePersistComponent implements OnInit {
 
+  public modalRef: BsModalRef;
   @ViewChild('f') form: NgForm;
   uuid: string;
   editedItem: Cliente;
   enderecoId: string;
 
-  constructor(private router: Router, private cliente: ClienteService, private route: ActivatedRoute) {
+  constructor(private modalService: BsModalService,
+              private router: Router,
+              private cliente: ClienteService,
+              private route: ActivatedRoute) {
   }
 
   ngOnInit() {
@@ -44,11 +50,14 @@ export class ClientePersistComponent implements OnInit {
       });
   }
 
-  onInsertAddress(){
-    console.log('==> onInsertAddress');
+  onInsertAddress(template: TemplateRef<any>){
+    console.log(template);
+    this.modalRef = this.modalService.show(template);
+
   }
 
-  onEditAddress(){
-    console.log('==> onEditAddress');
+  onEditAddress(template: TemplateRef<any>){
+    console.log(template);
+    this.modalRef = this.modalService.show(template);
   }
 }

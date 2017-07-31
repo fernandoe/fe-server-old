@@ -5,6 +5,7 @@ import {RouterModule} from '@angular/router';
 import {ROUTES} from './app.routes';
 import {Http, HttpModule} from '@angular/http';
 import {FormsModule} from '@angular/forms';
+import {ModalModule} from 'ngx-bootstrap';
 
 import {BlankLayoutComponent} from './views/layouts/blank/blankLayout.component';
 import {AuthService} from './sdk/auth.service';
@@ -21,7 +22,7 @@ import {PessoaService} from './sdk/pessoa.service';
 import {ClientePersistComponent} from './views/clientes/persist/cliente-persist.component';
 import {ClienteService} from './sdk/cliente.service';
 import {ExtendedHttpService} from './services/extended-http.service';
-import { EnderecoModalComponent } from './views/modals/endereco-modal/endereco-modal.component';
+import {EnderecoModalComponent} from './views/modals/endereco-modal/endereco-modal.component';
 
 @NgModule({
   declarations: [
@@ -40,6 +41,7 @@ import { EnderecoModalComponent } from './views/modals/endereco-modal/endereco-m
   ],
   imports: [
     BrowserModule,
+    ModalModule.forRoot(),
     HttpModule,
     FormsModule,
     RouterModule.forRoot(ROUTES),

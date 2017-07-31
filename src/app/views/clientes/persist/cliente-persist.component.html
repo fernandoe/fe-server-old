@@ -56,8 +56,8 @@
                         <br>
                       </address>
                       <p>
-                        <button *ngIf="enderecoId" type="button" class="btn btn-primary" (click)="onInsertAddress()">Editar Endereço</button>
-                        <button *ngIf="!enderecoId" type="button" class="btn btn-primary" (click)="onEditAddress()">Incluir um Endereço</button>
+                        <button *ngIf="enderecoId" type="button" class="btn btn-primary" (click)="onInsertAddress(template)">Editar Endereço</button>
+                        <button *ngIf="!enderecoId" type="button" class="btn btn-primary" (click)="onEditAddress(template)">Incluir um Endereço</button>
                       </p>
                     </div>
                   </div><!-- end ngRepeat: tab in tabs -->
@@ -99,4 +99,16 @@
   </div>
 </div>
 
-<app-endereco-modal></app-endereco-modal>
+<!--<app-endereco-modal></app-endereco-modal>-->
+
+<ng-template #template>
+  <div class="modal-header">
+    <h4 class="modal-title pull-left">Modal</h4>
+    <button type="button" class="close pull-right" aria-label="Close" (click)="modalRef.hide()">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div class="modal-body">
+    This is a modal.
+  </div>
+</ng-template>
